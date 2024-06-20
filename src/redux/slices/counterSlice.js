@@ -25,11 +25,19 @@ const counterSlice = createSlice({
         decrease: (state) => {
             state.count--;
         },
-    },
-})
-
-
-// Slice ın oluşturduğu reducer fonksiyonunu store a tanıtmak için export ettik.
-export default counterSlice.reducer
-
-export const {increase, decrease} = counterSlice.actions
+        setCount: (state, action) =>{
+            // console.log(state)
+            // console.log(action.payload)
+            state.count = action.payload;
+        },
+        toggleTheme: (state) => {
+            console.log(state.isDarkTheme);
+            state.isDarkTheme = !state.isDarkTheme;
+          },
+        },
+      });
+      //* Slice'ın oluşturduğu reducer fonksiyonunu store'a tanıtmak için export ettik.
+      export default counterSlice.reducer;
+      
+      export const { increase, decrease, setCount, toggleTheme } =
+        counterSlice.actions;
