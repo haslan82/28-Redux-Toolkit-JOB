@@ -1,8 +1,26 @@
-# React + Vite
+# Redux-Toolkit-Job App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This project includes a job application application developed using Redux Toolkit.
+- Easy and fast installation is provided with `ConfigureStore`.
+- Thanks to `CreateSlice`, action and reducer definitions have been made with simple and compact codes.
+- Components can access state with selectors.
 
-Currently, two official plugins are available:
+### Libraries:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    "@reduxjs/toolkit",
+    "bootstrap",
+    "react",
+    "react-bootstrap",
+    "react-dom",
+    "react-redux",
+    "react-router-dom",
+    "uuid"
+    
+# GIF
+
+## ![](/public/Screen%20Recording%202024-06-20%20at%2011.48.39.96%20PM.gif)
+
+## # Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
+
+
+

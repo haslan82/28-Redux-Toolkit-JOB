@@ -28,6 +28,39 @@ const crudSlice = createSlice({
 state.tasks.push(action.payload);
             //  console.log(action);
             //  console.log(state.tasks);
+        },
+        editTask:(state, action)=>{
+
+            // düzenlenecek elemanın sırasını bul
+       const index = state.tasks.findIndex(i=> i.id=== action.payload.id)
+       console.log(index);
+// elemanı güncelle
+       state.tasks.splice(index, 1, action.payload);
+        },
+
+        deleteTask:(state, action)=>{
+//!console.log(action)
+
+//? 1. yöntem
+
+// silinecek elemanın sırasını bul
+
+// const filtered = state.tasks.filter((task)=> task.id !== action.payload);
+
+
+//! elemanı sil
+// state.tasks = filtered;
+
+//? 2.yöntem
+
+
+// silinecek elemanın sırasını bul
+const index = state.tasks.findIndex((i)=> i.id === action.payload);
+
+// elemanı sil
+state.tasks.splice(index, 1);
+
+
         }
     }
 
@@ -37,4 +70,4 @@ state.tasks.push(action.payload);
 
 export default crudSlice.reducer;
 
-export const {addTask} = crudSlice.actions;
+export const {addTask, editTask, deleteTask} = crudSlice.actions;

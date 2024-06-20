@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addTask } from "./../redux/slices/crudSlice";
+import { addTask, editTask } from "./../redux/slices/crudSlice";
 
 const FormModal = ({ isOpen, handleClose, editItem }) => {
   console.log(editItem);
@@ -21,7 +21,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
     const taskData = Object.fromEntries(formData.entries());
 
     if (editItem) {
-      console.log("düzenleme modundasınız");
+      dispatch(editTask({id: editItem.id, ...taskData}))
     } else {
       // reducar a yeni task ekleneceğini haber ver
       dispatch(addTask(taskData));
@@ -34,7 +34,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
   return (
     <Modal centered show={isOpen} className="text-black">
       <Modal.Header>
-        <Modal.Title> Yeni Görev Ekle</Modal.Title>
+        <Modal.Title>{editItem ? "Görevi Güncelle" : "Yeni Görev Ekle"} </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
@@ -44,7 +44,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
               name="title"
               placeholder="Navbarı Düzenle"
               required
-              defaultValue={"title"}
+              defaultValue={editItem?.title}
             />
           </Form.Group>
 
@@ -54,7 +54,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
               name="author"
               placeholder="Navbarı Düzenle"
               required
-              defaultValue={"author"}
+              defaultValue={editItem?.author}
             />
           </Form.Group>
 
@@ -64,7 +64,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
               name="assigned_to"
               placeholder="Navbarı Düzenle"
               required
-              defaultValue={"assigned_to"}
+              defaultValue={editItem?.assigned_to}
             />
           </Form.Group>
 
@@ -75,7 +75,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
               name="end_date"
               placeholder="Navbarı Düzenle"
               required
-              defaultValue={"date"}
+              defaultValue={editItem?.end_date}
             />
           </Form.Group>
 
@@ -84,7 +84,7 @@ const FormModal = ({ isOpen, handleClose, editItem }) => {
             <Button onClick={handleClose} type="button" variant="secondary">
               İptal
             </Button>
-            <Button type="submit">Kaydet</Button>
+            <Button type="submit">{editItem ?" Kaydet" : "Oluştur"}</Button>
           </Modal.Footer>
         </Form>
       </Modal.Body>
