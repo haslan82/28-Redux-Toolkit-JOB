@@ -21,6 +21,3 @@
 ## ![](/public/Screen%20Recording%202024-06-20%20at%2011.48.39.96%20PM.gif)
 
 ## # Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
-
-
-
