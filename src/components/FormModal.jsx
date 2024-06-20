@@ -1,32 +1,43 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addTask } from "./../redux/slices/crudSlice";
 
+const FormModal = ({ isOpen, handleClose, editItem }) => {
+  console.log(editItem);
+  const dispatch = useDispatch();
 
+  // console.log(isOpen);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //!console.log("çalıştı")
+    //!console.log(e.target);
 
+    // formdata örneği oluşturur
+    const formData = new FormData(e.target);
+    //!console.log(formData);
 
-const FormModal = ({isOpen, handleClose} ) => {
-   // console.log(isOpen);
-const handleSubmit = (e)=>{
-e.preventDefault();
-    //console.log("çalıştı")
-console.log(e.target);
+    // inputlarda ki bilgileri nesneye çevirir
+    const taskData = Object.fromEntries(formData.entries());
 
-const formData = new FormData(e.target);
-//console.log(formData);
+    if (editItem) {
+      console.log("düzenleme modundasınız");
+    } else {
+      // reducar a yeni task ekleneceğini haber ver
+      dispatch(addTask(taskData));
+    }
 
-console.log(Object.fromEntries(formData.entries()))
+    // modalı kapatacak fonksiyon
+    handleClose();
+  };
 
-
-}
-
-   return (
+  return (
     <Modal centered show={isOpen} className="text-black">
       <Modal.Header>
         <Modal.Title> Yeni Görev Ekle</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
-
           <Form.Group>
             <Form.Label> Görev Başlığı </Form.Label>
             <Form.Control
@@ -59,8 +70,8 @@ console.log(Object.fromEntries(formData.entries()))
 
           <Form.Group>
             <Form.Label>Son Teslim Tarihi</Form.Label>
-            <Form.Control 
-            type="date"
+            <Form.Control
+              type="date"
               name="end_date"
               placeholder="Navbarı Düzenle"
               required
@@ -68,16 +79,15 @@ console.log(Object.fromEntries(formData.entries()))
             />
           </Form.Group>
 
-
-{/* //! Butonlar */}
+          {/* //! Butonlar */}
           <Modal.Footer>
-        <Button onClick={handleClose} type="button" variant="secondary">İptal</Button>
-        <Button type="submit">Kaydet</Button>
-      </Modal.Footer>
-
+            <Button onClick={handleClose} type="button" variant="secondary">
+              İptal
+            </Button>
+            <Button type="submit">Kaydet</Button>
+          </Modal.Footer>
         </Form>
       </Modal.Body>
-      
     </Modal>
   );
 };
