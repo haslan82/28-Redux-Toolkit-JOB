@@ -5,19 +5,19 @@
 - Thanks to `CreateSlice`, action and reducer definitions have been made with simple and compact codes.
 - Components can access state with selectors.
 
-### Libraries:
+## Libraries:
 
-    "@reduxjs/toolkit",
-    "bootstrap",
-    "react",
-    "react-bootstrap",
-    "react-dom",
-    "react-redux",
-    "react-router-dom",
-    "uuid"
+    - @reduxjs/toolkit
+    - bootstrap
+    - react
+    - react-bootstrap
+    - react-dom
+    - react-redux
+    - react-router-dom
+    - uuid
     
-# GIF
+## Gif
 
-## ![](/public/Screen%20Recording%202024-06-20%20at%2011.48.39.96%20PM.gif)
+ ![](/public/Screen%20Recording%202024-06-20%20at%2011.48.39.96%20PM.gif)
 
-## # Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
+### Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
